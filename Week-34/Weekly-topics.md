@@ -45,7 +45,9 @@ This week we will be covering the following topics:
 
 ### Recommended things to study
 
-To prepare for your upcoming exam I recommend reviewing the following topics
+
+To prepare for your upcoming exam I recommend reviewing the following topics.
+Additionally I recommend doing the PA about 3 - 5 times MINIMUM, try to solo build a rock paper scissors terminal game (solution in week-33 day 5 for reference), and going over the a/A open practices for anything you are struggling with. Keep in mind some of those practices may be more 'math/problem solvy' than needed for the test so the PA is a good reference to gauge how tough the questions will be.
 
 - Python syntax
     - Indentation
