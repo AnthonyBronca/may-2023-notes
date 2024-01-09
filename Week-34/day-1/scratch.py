@@ -69,7 +69,7 @@ names = ["anthony", "andrew", "bill", "edward", "arnold", "charles"]
 
 # Use "any" to return False i none of the names start with "J"
 
-any_js = any(map(lambda name: name[0].upper() == "B", names))
+any_js = any(map(lambda name: name[0].upper() == "J", names))
 
 
 print(any_js)
