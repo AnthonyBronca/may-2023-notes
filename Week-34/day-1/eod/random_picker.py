@@ -10,6 +10,9 @@ names_list = names.split("\n")
 
 names_list.remove("")
 
+# filtered_names = list(filter(lambda name: name != "", names_list))
+
+
 
 def pick_person(names_list, last_person):
     current_person = choice(names_list)
@@ -26,5 +29,9 @@ def pick_person(names_list, last_person):
 
 def start():
     last_person = ""
+    # current_person = pick_person(filtered_names, last_person)
     current_person = pick_person(names_list, last_person)
     print(current_person)
+
+
+start()
