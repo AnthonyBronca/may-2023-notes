@@ -1,5 +1,5 @@
-# names = ["anthony", "andrew", "bill", "edward", "arnold", "charles"]
 
+names = ["anthony", "andrew", "bill", "edward", "arnold", "charles"]
 
 # filtered_list = list(filter(lambda el: el == "anthony", names))
 
@@ -24,7 +24,7 @@
 
 # upper_names = list(map(lambda el: el * 2, arr))
 
-# upper_names = list(map(lambda el: el.upper(), names))
+upper_names = list(map(lambda el: el.upper(), names))
 
 # print(upper_names)
 
@@ -34,7 +34,7 @@
 # use sorted to create a NEW list where names are in alphabetical order
 
 
-# in_order = sorted(names)
+in_order = sorted(names)
 
 # print(in_order)
 
@@ -46,7 +46,7 @@
 # Hint: Try using a helper func
 
 
-# last_name_order = sorted(names, key=lambda name: name[-1])
+last_name_order = sorted(names, key=lambda name: name[-1])
 
 
 # print(last_name_order)
@@ -69,10 +69,10 @@ names = ["anthony", "andrew", "bill", "edward", "arnold", "charles"]
 
 # Use "any" to return False i none of the names start with "J"
 
-any_js = any(map(lambda name: name[0].upper() == "J", names))
+# any_js = any(map(lambda name: name[0].upper() == "J", names))
 
 
-print(any_js)
+# print(any_js)
 
 
 # TRY THIS OUT BELOW
