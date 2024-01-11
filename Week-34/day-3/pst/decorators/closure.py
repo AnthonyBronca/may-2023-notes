@@ -1,53 +1,31 @@
-admins = [
-    {"username": "Anthony", "password": "password"},
-    {"username": "Will", "password": "password2"},
-]
+# # Build a function that can multiply numbers
 
 
-mod6 = {
-    "week33": "Intro to Python",
-    "week34": "Python",
-    "assessment": "Week 34 + 35 Assessment",
-}
+# # def outter(func):
+# #     return func
 
 
-current_user = {
-    "username": input("username?:     "),
-    "password": input("password?:     "),
-}
+# # def inner(num):
+# #     return num * 2
 
 
-# print(current_user)
+# # doubler = outter(inner)
 
 
-def deny_access(topic, content):
-    print(f"You do not have permission to edit {topic}")
+# # print(doubler(3))
 
 
-def is_admin(func):
-    for admin in admins:
-        if current_user["username"] == admin["username"] and (
-            current_user["password"] == admin["password"]
-        ):
-            return func
+# def outter(num1):
+#     def inner(num2):
+#         return num1 * num2
 
-    else:
-        return deny_access
+#     return inner
 
 
-def change_content(topic, content):
-    if topic in mod6:
-        mod6[topic] = content
-        print("Content Modified Successfull!")
-    else:
-        print("That topic did not exist")
+# doubler = outter(2)
+# tribler = outter(3)
 
 
-change_item = is_admin(change_content)
+# print(doubler(8))
 
-change_item("week33", "Hello World")
-
-# change_content("week33", "Hello World")
-
-
-print(mod6)
+# print(tribler(10))
