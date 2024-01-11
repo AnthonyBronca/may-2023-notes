@@ -53,9 +53,10 @@ cart1.add_to_cart("bread", 4),
 cart1.add_to_cart("eggs", 1),
 
 print(cart1)
-target.transaction(bank1, cart1.cart)
+target.transaction(bank1, cart1)
 
 print("\n", "\n", "----------------", "\n", "\n")
 target.get_store()
 print("\n", "\n", "----------------", "\n", "\n")
 print(anthony)
+print(cart1)

@@ -9,8 +9,9 @@ class Store:
             "bread": {"price": 5, "quantity": 40},
         }
 
-    def transaction(self, bank, cart):
+    def transaction(self, bank, cart_cls):
         total_cost = 0
+        cart = cart_cls.get_cart()
         for i in range(len(cart)):
             user_cart = cart[i]
             for item in user_cart:
@@ -28,7 +29,7 @@ class Store:
                     print(f"We do not have {item} at this store")
 
         bank.withdraw(total_cost)
-        # cart.reset()
+        cart_cls.reset()
         return total_cost
 
     def get_store(self):
