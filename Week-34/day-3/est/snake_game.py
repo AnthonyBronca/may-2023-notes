@@ -14,6 +14,7 @@ FPS = 12
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 
 # Directions x y
 UP = (0, -1)
@@ -36,9 +37,6 @@ class Snake:
     def get_head(self):
         return self.positions[0]
 
-    def get_body(self):
-        return self.positions[1:]
-
     def update(self):
         cur = self.get_head()
         x, y = self.direction
@@ -46,9 +44,8 @@ class Snake:
             ((cur[0] + (x * SNAKE_SIZE)) % SCREEN_WIDTH),
             (cur[1] + (y * SNAKE_SIZE)) % SCREEN_HEIGHT,
         )
-
         if len(self.positions) > 2 and new in self.positions[2:]:
-            self.reset()  # Reset the game
+            self.reset()
         else:
             self.positions.insert(0, new)
             if len(self.positions) > self.score + 1:
@@ -66,14 +63,44 @@ class Snake:
         ):
             self.direction = direction
 
+    def get_body(self):
+        return self.positions[1:]
+
 
 # Food Class
+
+
+class Food:
+    def __init__(self):
+        self.position = (0, 0)
+        self.color = RED
+        self.randomize_positions()
+
+    def randomize_positions(self):
+        self.position = (
+            random.randint(0, SCREEN_WIDTH - SNAKE_SIZE) // SNAKE_SIZE * SNAKE_SIZE,
+            random.randint(0, SCREEN_HEIGHT - SNAKE_SIZE) // SNAKE_SIZE * SNAKE_SIZE,
+        )
+
+    def draw(self, surface):
+        pygame.draw.rect(
+            surface,
+            self.color,
+            pygame.Rect(self.position[0], self.position[1], SNAKE_SIZE, SNAKE_SIZE),
+        )
 
 
 # Functions
 
 
 # Make grid
+
+
+def draw_grid(surface):
+    for x in range(0, SCREEN_WIDTH, GRID_SIZE):
+        pygame.draw.line(surface, BLACK, (x, 0), (x, SCREEN_HEIGHT))
+    for y in range(0, SCREEN_HEIGHT, GRID_SIZE):
+        pygame.draw.line(surface, BLACK, (0, y), (SCREEN_WIDTH, y))
 
 
 # Game start condition
@@ -85,7 +112,9 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption("Snake Game")
 
+    # Add snake and food here
     snake = Snake()
+    food = Food()
 
     while True:
         for event in pygame.event.get():
@@ -102,16 +131,23 @@ def main():
                 elif event.key == pygame.K_LEFT:
                     snake.change_direction(LEFT)
 
+        # Refresh the snake drawing after each click to mouse
         snake.update()
 
+        if snake.get_head() == food.position:
+            snake.score += 1
+            food.randomize_positions()
+
+        # Added to add black screen to anywhere our snake has moved from
         screen.fill(BLACK)
 
+        # Draw te snakes's body
         snake_body = snake.get_body()
         for pos in snake_body:
             pygame.draw.rect(
                 screen, GREEN, pygame.Rect(pos[0], pos[1], SNAKE_SIZE, SNAKE_SIZE)
             )
-
+        # Draw the snake's head
         snake_head = snake.get_head()
         pygame.draw.rect(
             screen,
@@ -119,6 +155,8 @@ def main():
             pygame.Rect(snake_head[0], snake_head[1], SNAKE_SIZE, SNAKE_SIZE),
         )
 
+        food.draw(screen)
+        # Game items, keep this at the bottom
         pygame.display.update()
         clock.tick(FPS)
 
