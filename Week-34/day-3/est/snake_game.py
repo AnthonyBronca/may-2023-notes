@@ -1,22 +1,25 @@
-# Imports
+# Imports - Make sure to install (pip or pipenv) pygame
 import pygame
 import random
 
 
 # Constants
-SCREEN_WIDTH, SCREEN_HEIGHT = 400, 400
+SCREEN_WIDTH, SCREEN_HEIGHT = (
+    400,
+    400,
+)  # Size 20 snake/grid work good with window size of 400x400
 GRID_SIZE = 20
 SNAKE_SIZE = 20
-FPS = 12
+FPS = 12  # Lower -> slower. Higher -> faster
 
 
-# Colors # RGB
+# Colors -   R,G,B
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 
-# Directions x y
+# Directions - x y
 UP = (0, -1)
 DOWN = (0, 1)
 LEFT = (-1, 0)
@@ -91,8 +94,6 @@ class Food:
 
 
 # Functions
-
-
 # Make grid
 
 
@@ -104,8 +105,6 @@ def draw_grid(surface):
 
 
 # Game start condition
-
-
 def main():
     pygame.init()
     clock = pygame.time.Clock()
@@ -143,23 +142,27 @@ def main():
 
         # Draw te snakes's body
         snake_body = snake.get_body()
+        # The body of our snake as many rectangles
         for pos in snake_body:
             pygame.draw.rect(
                 screen, GREEN, pygame.Rect(pos[0], pos[1], SNAKE_SIZE, SNAKE_SIZE)
             )
         # Draw the snake's head
         snake_head = snake.get_head()
+        # Draw a rectanble that is green (The head of our snake)
         pygame.draw.rect(
             screen,
             GREEN,
             pygame.Rect(snake_head[0], snake_head[1], SNAKE_SIZE, SNAKE_SIZE),
         )
 
+        # Draw the food of our game
         food.draw(screen)
         # Game items, keep this at the bottom
         pygame.display.update()
         clock.tick(FPS)
 
 
+# How we initialize our function. __name__ should always be __main__
 if __name__ == "__main__":
     main()
