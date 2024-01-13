@@ -15,10 +15,12 @@
 
 Total Time Allowed: 2 hours
 
-Multiple Choice - 10 questions, 1 Pt each
-Coding - 23 points
 
-Total Points - 33 points
+- Multiple Choice - 10 questions, 1 Pt each
+- Coding - 23 points
+
+- Total Points - 33 points
+- Passing Score - 26 points
 
 ### Resources allowed
 For this assessment, you may use the following resources:
