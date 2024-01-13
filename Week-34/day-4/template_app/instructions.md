@@ -38,8 +38,9 @@ Your application should run in __init__.py once all imports are done correctly
     "bread": {"price": 5, "quantity": 40},
 }
 ```
-3. Create an instance method called `transaction` that takes in `bank` and `cart`
+3. Create an instance method called `transaction` that takes in `bank` and `cart_cls`
     - This method will manage the total cost of the cart
+    - Create a variable for cart, grabbing it from the cart_cls
     - It will check each item within the passed in cart
         - If the item is sold in the store do the following:
             - Check to see if there is enough in stock. If not, return:
@@ -144,7 +145,7 @@ cart1.add_to_cart("bread", 4),
 cart1.add_to_cart("eggs", 1),
 
 print(cart1)
-target.transaction(bank1, cart1.cart)
+target.transaction(bank1, cart1)
 
 print("\n", "\n", "----------------", "\n", "\n")
 target.get_store()
