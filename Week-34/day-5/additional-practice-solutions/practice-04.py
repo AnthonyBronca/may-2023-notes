@@ -3,11 +3,13 @@
 # Must be a one liner
 
 
+# Even keys, means we have to filer -> should have an if conditional AFTER the for loop
+
 og_dict = {1: 10, 2: 20, 3: 30, 4: 40}
 
 
 def even_dict_doubler(dict1):
-    pass
+    return {key: val * 2 for key, val in dict1.items() if key % 2 == 0}
 
 
 print(even_dict_doubler(og_dict))  # {2: 40, 4: 80}

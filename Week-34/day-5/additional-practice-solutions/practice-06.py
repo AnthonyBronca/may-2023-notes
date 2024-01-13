@@ -6,8 +6,14 @@
 # if num is odd, return None
 
 
-def outter():
-    pass
+def outter(func):
+    def inner(num):
+        if num % 2 == 0:
+            return func(num)
+        else:
+            return None
+
+    return inner
 
 
 def doubler(num):

@@ -16,7 +16,7 @@ res = [[], [2], [4,6]]
 
 
 def doubler_lists(lst):
-    pass
+    return list(map(lambda subArr: [el for el in subArr if el * 3 % 2 == 0], lst))
 
 
 print(doubler_lists(double_lists))  # [[], [2], [4,6]]
