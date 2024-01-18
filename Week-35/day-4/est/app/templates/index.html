@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_info.title }}</title>
+</head>
+<body>
+    <h1>{{site_info.header}}</h1>
+    <div>
+        <a href="/forms/new_user">New User</a>
+    </div>
+    {% for user in site_info.users %}
+    <p>{{user["name"]}}</p>
+    {% endfor %}
+</body>
+</html>

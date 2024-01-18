@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>sign up</h1>
+    <span>{{new_form.username.label}}</span>
+    {{ new_form.username() }}
+    <span>{{new_form.password.label}}</span>
+    {{  new_form.password() }}
+    <span>{{ new_form.submit_button.label}}</span>
+    {{ new_form.submit_button() }}
+</body>
+</html>
