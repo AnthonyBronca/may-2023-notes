@@ -9,18 +9,17 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 
-# @app.route("/")
-# def index():
+@app.route("/")
+def index():
+    site_info = {
+        "title": "Flask + Jinja",
+        "header": "Hello World",
+        "names": ["bob", "joe", "jane"],
+    }
+
+    return render_template("index.html", site_info=site_info)
 
 
-#     site_info = {
-#         "title": "Flask + Jinja",
-#         "header": "Hello World",
-#         "names": ["bob", "joe", "jane"],
-#     }
-
-
-#     return render_template("index.html", site_info=site_info)
 @app.route("/form")
 def sample_form():
     form = SampleForm()
