@@ -7,7 +7,7 @@
 </head>
 <body>
     <H1>Sample Form</H1>
-    <form>
+    <form action="/forms/new_user" method="POST">
         {{form.csrf_token}}
         {{form.hidden_tag()}}
         <span>
