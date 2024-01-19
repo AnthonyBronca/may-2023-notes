@@ -12,7 +12,7 @@
 #    the argument only if the argument is a value of "Light" or "Dark".
 #
 # A getter named "level" that returns the value of the Wizard's level.
-#
+# Note-> fix typo
 # A setter for "level" that will will set the value of the Wizard's level
 #    only if the provided value is between 0 and 100 inclusive.
 #
@@ -29,16 +29,36 @@
 # In addition to running `pytest test/test_problem_04_getters_and_setters.py` you can also
 # test your code manually using the sample data below.
 #
-#______________________________YOUR CODE BELOW______________________________#
+# ______________________________YOUR CODE BELOW______________________________#
 
 
-# Your code here 
+# Your code here
+class Wizard:
+    def __init__(self, name, magic="Light", level=0):
+        self._name = name
+        if magic == "Light" or magic == "Dark":
+            self._magic = magic
+        self._level = level
+
+    @property
+    def level(self):
+        return self._level
+
+    @level.setter
+    def level(self, new_val):
+        if new_val >= 0 or new_val <= 100:
+            self._level = new_val
+        else:
+            raise ValueError("Level outside of range 0-100.")
+
+    def __repr__(self):
+        return f"<{self._name} is a level {self.level} {self._magic} Wizard>"
 
 
 # __________SAMPLE TEST DATA__________ #
-# gandalf = Wizard("Gandalf", level=10, magic="Dark")
+gandalf = Wizard("Gandalf", level=10, magic="Dark")
 
-# print(gandalf.level)      # 10
-# gandalf.level = 15
-# print(gandalf.level)      # 15
-# print(gandalf)            # <Gandalf is a level 15 Dark Wizard>
+print(gandalf.level)  # 10
+gandalf.level = 15
+print(gandalf.level)  # 15
+print(gandalf)  # <Gandalf is a level 15 Dark Wizard>

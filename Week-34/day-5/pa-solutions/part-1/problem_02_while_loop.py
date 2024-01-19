@@ -12,10 +12,23 @@
 #
 #  ______________________________YOUR CODE BELOW______________________________#
 
-# Your code here 
+
+# Your code here
+def while_loop_odds(lst):
+    res = []
+    i = 0
+    while i < len(lst):
+        el = lst[i]
+        if el % 2 != 0:
+            res.append(el)
+
+        i += 1
+
+    return res
+
 
 # __________SAMPLE TEST DATA__________ #
-# lst1 = [1,2,4,5,7,9]
-# print(while_loop_odds(lst1))      # [1, 5, 7, 9]
-# lst2 = [2, 3, 4, 5, 6, 7]
-# print(while_loop_odds(lst2))      # [3, 5, 7]
+lst1 = [1, 2, 4, 5, 7, 9]
+print(while_loop_odds(lst1))  # [1, 5, 7, 9]
+lst2 = [2, 3, 4, 5, 6, 7]
+print(while_loop_odds(lst2))  # [3, 5, 7]

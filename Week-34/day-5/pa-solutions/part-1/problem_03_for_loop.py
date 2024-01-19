@@ -12,10 +12,18 @@
 #
 #  ______________________________YOUR CODE BELOW______________________________#
 
-# Your code here 
+
+# Your code here
+def for_loop_evens(lst):
+    res = []
+    for el in lst:
+        if el % 2 == 0:
+            res.append(el)
+    return res
+
 
 # __________SAMPLE TEST DATA__________ #
-# lst1 = [1,2,4,5,7,9]
-# print(for_loop_evens(lst1))       # [2, 4]
-# lst2 = [2, 3, 4, 5, 6, 7]
-# print(for_loop_evens(lst2))       # [2, 4, 6]
+lst1 = [1, 2, 4, 5, 7, 9]
+print(for_loop_evens(lst1))  # [2, 4]
+lst2 = [2, 3, 4, 5, 6, 7]
+print(for_loop_evens(lst2))  # [2, 4, 6]

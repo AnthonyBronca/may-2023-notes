@@ -26,9 +26,20 @@
 #
 #  ______________________________YOUR CODE BELOW______________________________#
 
-# Your code here 
+
+# Your code here
+def enough_donuts(num):
+    if num <= 1:
+        return "Not enough donuts"
+    elif num > 1 and num <= 4:
+        return "That's enough donuts"
+    elif num > 4 and num <= 12:
+        return "That's a lot of donuts"
+    else:
+        return "I hope you are sharing"
+
 
 # __________SAMPLE TEST DATA__________ #
-# print(enough_donuts(1))       # Not enough donuts
-# print(enough_donuts(4))       # That's enough donuts
-# print(enough_donuts(14))      # I hope you are sharing
+# print(enough_donuts(1))  # Not enough donuts
+# print(enough_donuts(4))  # That's enough donuts
+# print(enough_donuts(14))  # I hope you are sharing
