@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block main %}
+
+<p>Users</p>
+
+{% for user in users %}
+<div>
+    <span>Name: {{user['name']}}</span>
+    <span>Age: {{user['age']}}</span>
+    <span>Email: {{user['email']}}</span>
+</div>
+
+{% endfor %}
+
+{% endblock %}
